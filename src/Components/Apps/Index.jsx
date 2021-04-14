@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "../Navigation/Index";
 
+import { withAuthentication } from "../../Session";
+
 import Login from './Login';
 import Register from './Register';
 
@@ -19,4 +21,4 @@ const App = () => (
     </Router>
 )
 
-export default App;
+export default withAuthentication(App);

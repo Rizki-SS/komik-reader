@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Container, Avatar, Icon, Typography, Grid, makeStyles } from "@material-ui/core";
 
+
+import { withAuthorization } from "../../../Session";
 import FormLogin from './formLogin';
+import withAuthotization from "../../../Session/withAuthorization";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -40,4 +43,6 @@ function Login() {
     )
 }
 
-export default Login;
+
+const condition = authUser => !authUser;
+export default withAuthotization(condition)(Login);

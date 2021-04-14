@@ -3,12 +3,8 @@ const menu = [{
         url: '/'
     },
     {
-        name: 'Schedule',
-        url: '/schedule',
-    },
-    {
-        name: 'Login',
-        url: '/login'
+        name: 'popular',
+        url: '/popular',
     }
 ]
 

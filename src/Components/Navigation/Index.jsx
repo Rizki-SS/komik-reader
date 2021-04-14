@@ -3,6 +3,8 @@ import { makeStyles, AppBar, Toolbar, Typography, Button, Container } from "@mat
 
 import menu from "../../Constants/Menu";
 import Drawer from "./SwipeBar";
+import Logout from "../Apps/Logout";
+import { AuthUserContext } from "../../Session";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,6 +37,9 @@ export default function Navbar() {
                             {menu.map((e, i) => (
                                 <Button key={i} href={e.url}>{e.name}</Button>
                             ))}
+                            <AuthUserContext>
+                                {authUser => authUser ? <Logout /> : <Button href="/login">Login</Button>}
+                            </AuthUserContext>
                         </div>
                         <Drawer />
                     </Toolbar>
