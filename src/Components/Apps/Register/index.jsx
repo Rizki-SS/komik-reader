@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Avatar, Icon, Typography, Grid, makeStyles } from "@material-ui/core";
 
-import FormLogin from './formLogin';
+import FormRegister from './formRegister';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function Login() {
+function Register() {
     const classes = useStyles();
 
     return (
@@ -33,11 +33,11 @@ function Login() {
                         Sign Up
                     </Typography>
 
-                    <FormLogin />
+                    <FormRegister />
                 </Grid>
             </Grid>
         </Container >
     )
 }
 
-export default Login;
+export default Register;
