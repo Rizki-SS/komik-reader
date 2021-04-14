@@ -140,14 +140,10 @@ class LoginForm extends Component {
     }
 }
 
-const LoginPage = () => (
-    <Login></Login>
-)
-
 const Login = compose(
     withRouter,
     withFirebase,
     withStyles(useStyles)
 )(LoginForm);
 
-export default LoginPage;
+export default Login;
