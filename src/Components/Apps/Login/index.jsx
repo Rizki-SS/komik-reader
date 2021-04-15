@@ -8,7 +8,6 @@ import withAuthotization from "../../../Session/withAuthorization";
 
 const useStyles = makeStyles(theme => ({
     root: {
-        marginTop: theme.spacing(8),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -39,6 +38,7 @@ function Login() {
                     <FormLogin />
                 </Grid>
             </Grid>
+
         </Container >
     )
 }
