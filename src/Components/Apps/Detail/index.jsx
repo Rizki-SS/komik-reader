@@ -5,7 +5,9 @@ import { useEffect } from "react";
 import { getDetail } from "../../../Services/Detail";
 import { Parallax } from "react-parallax";
 import { Container, Card, CardMedia, CardContent, Typography, makeStyles, Grid, Button, Paper } from "@material-ui/core";
+import Skeleton from '@material-ui/lab/Skeleton';
 import ChapterList from "./ChapterList";
+import TextLazy from "../../Skeleton";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         padding: 10,
-        margin: 10
+        marginBottom: 30
     }
 }));
 
@@ -42,9 +44,7 @@ const Manga = (props) => {
     useEffect(() => {
         getDetail(props.match.params.path)
             .then(result => {
-                setManga(result)
-                console.log(result);
-
+                setManga(result);
             })
     }, [manga.title]);
 
@@ -63,21 +63,29 @@ const Manga = (props) => {
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={3}>
                         <Card>
-                            <CardMedia
-                                className={classes.media}
-                                image={manga.thumb}
-                                title={manga.title}
-                            />
+                            {
+                                !manga ? (
+                                    <Skeleton animation="wave" variant="rect" height={400} />
+                                ) : (
+                                        <CardMedia
+                                            className={classes.media}
+                                            image={manga.thumb}
+                                            title={manga.title}
+                                        />
+                                    )
+                            }
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    {manga.title}
-                                </Typography>
-                                <Typography gutterBottom variant="p" component="p">
-                                    By. {manga.author}
-                                </Typography>
-                                <Typography gutterBottom variant="p" component="p">
-                                    {manga.status}
-                                </Typography>
+                                <TextLazy row={3} condition={!manga}>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        {manga.title}
+                                    </Typography>
+                                    <Typography gutterBottom variant="body2" component="p">
+                                        By. {manga.author}
+                                    </Typography>
+                                    <Typography gutterBottom variant="body2" component="p">
+                                        {manga.status}
+                                    </Typography>
+                                </TextLazy>
                             </CardContent>
                         </Card>
                     </Grid>
@@ -86,14 +94,16 @@ const Manga = (props) => {
                             <Typography gutterBottom variant="h6" component="h2">
                                 Sinopsis
                             </Typography>
-                            <Typography variant="body" color="textSecondary" component="p">
-                                {manga.synopsis}
-                            </Typography>
+                            <TextLazy row={7} condition={!manga}>
+                                <Typography variant="body1" color="textSecondary" component="p">
+                                    {manga.synopsis}
+                                </Typography>
+                            </TextLazy>
                             <Typography gutterBottom variant="h6" component="h5">
                                 Ganre
                             </Typography>
                             {manga.genre_list?.map(e => (
-                                <Button className={classes.ganrebutton} variant="contained" color="primary" >
+                                <Button className={classes.ganrebutton} key={e.genre_name} variant="contained" color="primary" >
                                     {e.genre_name}
                                 </Button>
                             ))}

@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, List, ListItemText, ListItem, Link, Icon, ListItemIcon } from "@material-ui/core";
+import TextLazy from "../../Skeleton";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,16 +19,18 @@ const ChapterList = (props) => {
     const classes = useStyles();
 
     return (
-        <List className={classes.root} subheader={<li />}>
-            {props.chapter?.map((e, i) => (
-                <ListItem key={i} button href={"../../chapter/" + e.chapter_endpoint} component={Link}>
-                    <ListItemIcon>
-                        <Icon>visibility</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary={e.chapter_title} />
-                </ListItem>
-            ))}
-        </List>
+        <TextLazy row={5} condition={!props.chapter}>
+            <List className={classes.root} subheader={<li />}>
+                {props.chapter?.map((e, i) => (
+                    <ListItem key={i} button href={"../../chapter/" + e.chapter_endpoint} component={Link}>
+                        <ListItemIcon>
+                            <Icon>visibility</Icon>
+                        </ListItemIcon>
+                        <ListItemText primary={e.chapter_title} />
+                    </ListItem>
+                ))}
+            </List>
+        </TextLazy>
     )
 }
 
