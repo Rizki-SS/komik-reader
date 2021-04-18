@@ -27,7 +27,7 @@ export default function Navbar() {
 
     return (
         <div>
-            <AppBar className={classes.root} color="#fff">
+            <AppBar className={classes.root} color={"inherit"} position={"relative"}>
                 <Container>
                     <Toolbar>
                         <Typography className={classes.title} variant="h6" noWrap>
