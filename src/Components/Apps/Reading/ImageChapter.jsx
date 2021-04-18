@@ -8,7 +8,7 @@ const ImageChapter = (props) => {
   return (
     <div>
       {props.chapter_image?.map((e, i) => (
-        <div align="center">
+        <div key={e.image_number} align="center">
           <LazyLoadImage
             effect="blur"
             key={e.image_number}

@@ -35,9 +35,11 @@ const ReadingPage = (props) => {
     return (
         <Container>
             <Typography variant="h4" component="h1" className={classes.title} align="center" color="textPrimary">
-                {title}
+                <TextLazy row={1} condition={!chapter}>
+                    {title}
+                </TextLazy>
             </Typography>
-            <Typography variant="p" component="p" align="center" color="secondary">
+            <Typography variant="body1" component="p" align="center" color="secondary">
                 <TextLazy row={1} condition={!chapter}>
                     Semua chapter ada di {title}
                 </TextLazy>
