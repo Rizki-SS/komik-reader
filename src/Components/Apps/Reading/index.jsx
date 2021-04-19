@@ -3,7 +3,7 @@ import { Container, Typography, makeStyles } from "@material-ui/core";
 import { getChapter } from "../../../Services/Chapter";
 import ImageChapter from "./ImageChapter";
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import TextLazy from "../../Skeleton";
+import { TextLazy } from "../../Widget";
 
 const useStyles = makeStyles((theme) => ({
     title: {

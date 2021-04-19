@@ -7,7 +7,7 @@ import { Parallax } from "react-parallax";
 import { Container, Card, CardMedia, CardContent, Typography, makeStyles, Grid, Button, Paper } from "@material-ui/core";
 import Skeleton from '@material-ui/lab/Skeleton';
 import ChapterList from "./ChapterList";
-import TextLazy from "../../Skeleton";
+import { TextLazy } from "../../Widget";
 
 const useStyles = makeStyles((theme) => ({
     root: {

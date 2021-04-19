@@ -12,6 +12,7 @@ const ImageChapter = (props) => {
           <LazyLoadImage
             effect="blur"
             key={e.image_number}
+            width="100%"
             scrollPosition={scrollPosition}
             src={e.chapter_image_link} />
           <p>{e.image_number}</p>

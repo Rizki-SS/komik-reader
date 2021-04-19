@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, List, ListItemText, ListItem, Link, Icon, ListItemIcon } from "@material-ui/core";
-import TextLazy from "../../Skeleton";
+import { TextLazy } from "../../Widget";
 
 const useStyles = makeStyles((theme) => ({
     root: {
