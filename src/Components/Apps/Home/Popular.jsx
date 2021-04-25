@@ -14,7 +14,10 @@ const useStyles = makeStyles((theme) => ({
     },
     gridList: {
         height: '330px',
-        flexWrap: 'nowrap'
+        flexWrap: 'nowrap',
+        [theme.breakpoints.down('sm')]: {
+            height: '620px',
+        }
     },
 }))
 
@@ -33,7 +36,7 @@ const Popular = (props) => {
     return (
         <div className={classes.root}>
             {(Komik.status) ? (
-                <GridList className={classes.gridList} cols={(props.width === 'xs') ? 1 : 2} cellHeight={300}>
+                <GridList className={classes.gridList} cols={(props.width === 'xs') ? 1 : 2} cellHeight={(props.width === 'xs') ? 600 : 310}>
                     {Komik.manga_list?.map((e, i) => (
                         <GridListTile>
                             <CardComic
@@ -48,7 +51,7 @@ const Popular = (props) => {
                     ))}
                 </GridList>
             ) : (
-                    <GridList className={classes.gridList} cols={2} cellHeight={300}>
+                    <GridList className={classes.gridList} cols={(props.width === 'xs') ? 1 : 2} cellHeight={(props.width === 'xs') ? 600 : 310}>
                         <GridListTile>
                             <CardComicSkelaton />
                         </GridListTile>

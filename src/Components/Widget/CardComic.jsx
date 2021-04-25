@@ -9,7 +9,12 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         height: '300px',
-        width: '600px'
+        width: '600px',
+        [theme.breakpoints.down('sm')]: {
+            display: 'block',
+            maxWidth: 360,
+            height: 'auto',
+        }
     },
     details: {
         display: 'flex',
@@ -21,17 +26,17 @@ const useStyles = makeStyles((theme) => ({
         flex: '1 0 auto',
     },
     cover: {
-        width: '300px',
-        height: '600px'
+        height: 600,
+        width: 300,
+        [theme.breakpoints.down('sm')]: {
+            height: 400,
+            width: 360,
+        }
     },
     controls: {
         alignItems: 'center',
         paddingLeft: theme.spacing(1),
         paddingBottom: theme.spacing(3),
-    },
-    playIcon: {
-        height: 38,
-        width: 38,
     },
 }));
 
@@ -44,15 +49,14 @@ const CardComic = (props) => {
                 className={classes.cover}
                 image={props.thumb}
                 title={props.title}
-                width="300px"
-                height='600px'
+                component="img"
             />
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Typography variant="body1" color="textSecondary">
                         Last Update {props.updated_on}
                     </Typography>
-                    <Typography component="h5" variant="h5">
+                    <Typography component="h5" variant="h5" >
                         <b>{props.title}</b>
                     </Typography>
                     <Typography variant="subtitle1" color="textSecondary">

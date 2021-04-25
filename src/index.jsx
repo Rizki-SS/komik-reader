@@ -6,10 +6,14 @@ import './index.css';
 
 import Firebase, { FirebaseContext } from './Firebase';
 import App from './Components/Apps/Index';
+import { MuiThemeProvider } from '@material-ui/core';
+import theme from "./Theme";
 
 ReactDOM.render(
   <FirebaseContext.Provider value={new Firebase()}>
-    <App />
+    <MuiThemeProvider theme={theme}>
+      <App />
+    </MuiThemeProvider>
   </FirebaseContext.Provider >,
   document.getElementById('root')
 );
