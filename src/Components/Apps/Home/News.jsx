@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getNewUpdate } from "../../../Services/NewUpdate";
 import { Grid, Button, makeStyles } from "@material-ui/core";
 import CardComic from "../../Widget/CardComic";
+import { DisappearedLoading, BoxLoading } from 'react-loadingg';
 
 const useStyles = makeStyles((theme) => ({
 }));
@@ -14,6 +15,7 @@ const News = () => {
         page: 0,
         komik_list: null
     });
+    const [Loading, setLoading] = useState(true);
 
     useEffect(() => {
         getNewUpdate(0)
@@ -22,12 +24,14 @@ const News = () => {
                     page: 1,
                     ...result
                 })
-                console.log(Komik);
+
+                setLoading(false);
             })
     }, [Komik.status]);
 
     const LoadMore = (event) => {
         // console.log("CLicked");
+        setLoading(true);
         getNewUpdate(Komik.page + 1)
             .then((result) => {
                 setKomik({
@@ -35,12 +39,14 @@ const News = () => {
                     status: Komik.status,
                     manga_list: [...Komik.manga_list, ...result.manga_list]
                 })
+                setLoading(false);
                 // console.log(Komik);
             })
     }
 
     return (
         <Grid container spacing={3} justify="center">
+
             {Komik.manga_list?.map((e, i) => (
                 <Grid item>
                     <CardComic
@@ -54,9 +60,15 @@ const News = () => {
                 </Grid>
             ))
             }
-            <Button onClick={LoadMore} color="primary" variant="contained">
-                Load More
-            </Button>
+            {(Loading) ? (
+                <Button disabled>
+                    <DisappearedLoading />
+                </Button>
+            ) : (
+                    <Button onClick={LoadMore} color="primary" variant="contained">
+                        Load More
+                    </Button>
+                )}
         </Grid>
     )
 }
