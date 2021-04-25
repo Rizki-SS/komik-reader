@@ -19,7 +19,7 @@ const HomePage = () => {
                 <div className={classes.root}>
                     <Popular />
                 </div>
-
+                <h1>News Comic</h1>
                 <News></News>
             </Container>
 

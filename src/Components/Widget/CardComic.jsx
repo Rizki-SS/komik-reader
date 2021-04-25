@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { makeStyles, Card, CardContent, CardMedia, Typography, Link } from "@material-ui/core";
+import { makeStyles, Card, CardContent, CardMedia, Typography } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -61,7 +63,7 @@ const CardComic = (props) => {
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>
-                    <Link href={"/manga/" + props.endpoint}>Baca Selengkapnya</Link>
+                    <Link to={"/manga/" + props.endpoint}>Baca Selengkapnya</Link>
                 </div>
             </div>
         </Card>

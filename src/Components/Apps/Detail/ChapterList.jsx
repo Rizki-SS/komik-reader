@@ -1,6 +1,7 @@
 import React from "react";
-import { makeStyles, List, ListItemText, ListItem, Link, Icon, ListItemIcon } from "@material-ui/core";
+import { makeStyles, List, ListItemText, ListItem, Icon, ListItemIcon } from "@material-ui/core";
 import { TextLazy } from "../../Widget";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,7 +23,7 @@ const ChapterList = (props) => {
         <TextLazy row={5} condition={!props.chapter}>
             <List className={classes.root} subheader={<li />}>
                 {props.chapter?.map((e, i) => (
-                    <ListItem key={i} button href={"../../chapter/" + e.chapter_endpoint} component={Link}>
+                    <ListItem key={i} button to={"../../chapter/" + e.chapter_endpoint} component={Link}>
                         <ListItemIcon>
                             <Icon>visibility</Icon>
                         </ListItemIcon>

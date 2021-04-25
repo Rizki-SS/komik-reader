@@ -5,6 +5,7 @@ import menu from "../../Constants/Menu";
 import Drawer from "./SwipeBar";
 import Logout from "../Apps/Logout";
 import { AuthUserContext } from "../../Session";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,10 +36,13 @@ export default function Navbar() {
                         </Typography>
                         <div className={classes.menu}>
                             {menu.map((e, i) => (
-                                <Button key={i} href={e.url}>{e.name}</Button>
+                                <Button key={i} component={Link} to={e.url}>
+                                    {e.name}
+                                </Button>
+
                             ))}
                             <AuthUserContext>
-                                {authUser => authUser ? <Logout /> : <Button href="/login">Login</Button>}
+                                {authUser => authUser ? <Logout /> : <Button component={Link} to="/login">Login</Button>}
                             </AuthUserContext>
                         </div>
                         <Drawer />

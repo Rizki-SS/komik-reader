@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getNewUpdate } from "../../../Services/NewUpdate";
-import { Grid } from "@material-ui/core";
+import { Grid, Button, makeStyles } from "@material-ui/core";
 import CardComic from "../../Widget/CardComic";
 
+const useStyles = makeStyles((theme) => ({
+}));
+
+
 const News = () => {
+    const classes = useStyles();
+
     const [Komik, setKomik] = useState({
         page: 0,
         komik_list: null
@@ -13,7 +19,7 @@ const News = () => {
         getNewUpdate(0)
             .then((result) => {
                 setKomik({
-                    page: 0,
+                    page: 1,
                     ...result
                 })
                 console.log(Komik);
@@ -34,26 +40,24 @@ const News = () => {
     }
 
     return (
-        <div>
-            <Grid container spacing={3}>
-                {Komik.manga_list?.map((e, i) => (
-                    <Grid item>
-                        <CardComic
-                            title={e.title}
-                            chapter={e.chapter}
-                            endpoint={e.endpoint}
-                            thumb={e.thumb}
-                            key={i}
-                            type={e.type}
-                        />
-                    </Grid>
-                ))
-                }
-            </Grid>
-            <button onClick={LoadMore}>
+        <Grid container spacing={3} justify="center">
+            {Komik.manga_list?.map((e, i) => (
+                <Grid item>
+                    <CardComic
+                        title={e.title}
+                        chapter={e.chapter}
+                        endpoint={e.endpoint}
+                        thumb={e.thumb}
+                        key={i}
+                        type={e.type}
+                    />
+                </Grid>
+            ))
+            }
+            <Button onClick={LoadMore} color="primary" variant="contained">
                 Load More
-            </button>
-        </div>
+            </Button>
+        </Grid>
     )
 }
 

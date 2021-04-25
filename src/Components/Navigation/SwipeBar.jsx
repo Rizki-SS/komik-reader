@@ -1,5 +1,7 @@
 import React from "react";
-import { makeStyles, SwipeableDrawer, IconButton, List, ListItem, ListItemText, Icon, Link } from "@material-ui/core";
+import { makeStyles, SwipeableDrawer, IconButton, List, ListItem, ListItemText, Icon } from "@material-ui/core";
+import { Link } from "react-router-dom";
+
 
 import menu from "../../Constants/Menu";
 
@@ -48,7 +50,7 @@ export default function Drawer() {
             >
                 <List className={classes.list}>
                     {menu.map((e, i) => (
-                        <ListItem key={i} button href={e.url} component={Link}>
+                        <ListItem key={i} button to={e.url} component={Link}>
                             <ListItemText primary={e.name} />
                         </ListItem>
                     ))}
