@@ -8,6 +8,8 @@ import { Container, Card, CardMedia, CardContent, Typography, makeStyles, Grid, 
 import Skeleton from '@material-ui/lab/Skeleton';
 import ChapterList from "./ChapterList";
 import { TextLazy } from "../../Widget";
+import Komentar from "./Komentar";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -113,6 +115,13 @@ const Manga = (props) => {
                                 Chapter List
                             </Typography>
                             <ChapterList chapter={manga.chapter} />
+                        </Paper>
+                        <Paper className={classes.paper}>
+                        <Typography gutterBottom variant="h6" component="h5">
+                                Komentar
+                            </Typography>
+                            <hr/>
+                            <Komentar/>
                         </Paper>
                     </Grid>
                 </Grid>
