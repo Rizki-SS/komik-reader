@@ -117,11 +117,11 @@ const Manga = (props) => {
                             <ChapterList chapter={manga.chapter} />
                         </Paper>
                         <Paper className={classes.paper}>
-                        <Typography gutterBottom variant="h6" component="h5">
+                            <Typography gutterBottom variant="h6" component="h5">
                                 Komentar
                             </Typography>
-                            <hr/>
-                            <Komentar/>
+                            <hr />
+                            <Komentar endpoint={manga.manga_endpoint} />
                         </Paper>
                     </Grid>
                 </Grid>
