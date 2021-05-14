@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextField, makeStyles, Grid, Avatar } from "@material-ui/core";
 import { compose } from "recompose";
-import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { withRouter, Link } from "react-router-dom/cjs/react-router-dom.min";
 import { withFirebase } from "../../../Firebase";
 import { withAuthorization, AuthUserContext } from "../../../Session";
 
@@ -45,17 +45,21 @@ const FormKomentar = (props) => {
         <div>
             <AuthUserContext.Consumer>
                 {authUser =>
-                    <form
-                        className={classes.root}
-                        noValidate
-                        onSubmit={e => postKomen(e, authUser)}>
-                        <TextField
-                            id="standard-basic"
-                            label="Ikut berdiskusi.."
-                            value={Komen.komen}
-                            fullWidth
-                            onChange={onChage} />
-                    </form>
+                    authUser ? (
+                        <form
+                            className={classes.root}
+                            noValidate
+                            onSubmit={e => postKomen(e, authUser)}>
+                            <TextField
+                                id="standard-basic"
+                                label="Ikut berdiskusi.."
+                                value={Komen.komen}
+                                fullWidth
+                                onChange={onChage} />
+                        </form>
+                    ) : (
+                            <Link to="/login">Login</Link>
+                        )
                 }
             </AuthUserContext.Consumer>
 

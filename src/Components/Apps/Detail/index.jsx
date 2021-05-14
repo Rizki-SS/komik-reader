@@ -122,8 +122,8 @@ const Manga = (props) => {
                                 Komentar
                             </Typography>
                             <hr />
-                            <Komentar endpoint={manga.manga_endpoint} />
-                            <KomentarList endpoint={manga.manga_endpoint} />
+                            <Komentar endpoint={props.match.params.path} />
+                            <KomentarList endpoint={props.match.params.path} />
                         </Paper>
                     </Grid>
                 </Grid>
