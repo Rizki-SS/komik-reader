@@ -56,6 +56,9 @@ class Firebase {
 
     user = uid => this.db.ref(`users/${uid}`);
     users = () => this.db.ref('users')
+
+    komentar = (endpoin, id) => this.db.ref(`komentar/${endpoin}/${id}`)
+    getKomentar = (endpoin) => this.db.ref(`komentar/${endpoin}`)
 }
 
 export default Firebase;

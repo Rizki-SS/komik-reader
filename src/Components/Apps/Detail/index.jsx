@@ -9,6 +9,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import ChapterList from "./ChapterList";
 import { TextLazy } from "../../Widget";
 import Komentar from "./Komentar";
+import KomentarList from "./KomentarList";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -122,6 +123,7 @@ const Manga = (props) => {
                             </Typography>
                             <hr />
                             <Komentar endpoint={manga.manga_endpoint} />
+                            <KomentarList endpoint={manga.manga_endpoint} />
                         </Paper>
                     </Grid>
                 </Grid>

@@ -58,14 +58,7 @@ const FormKomentar = (props) => {
                     </form>
                 }
             </AuthUserContext.Consumer>
-            <Grid container xs={12} className={classes.GridKomentar} >
-                <Grid item xs={12} >
-                    Lisa
-                </Grid>
-                <Grid item xs={12} >
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, temporibus laborum. Ab ut, enim in doloremque iusto suscipit amet, aperiam sit quo optio cumque! Voluptas ipsum ab eos nisi quae?
-                </Grid>
-            </Grid>
+
         </div>
 
     )
