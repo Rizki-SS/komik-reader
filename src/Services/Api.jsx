@@ -1,29 +1,40 @@
+const BASE_URL = "https://mangamint.kaedenoki.net/api"
+
 function getChapter(endpoin) {
-    return fetch('https://mangamint.kaedenoki.net/api/chapter/' + endpoin)
+    return fetch(BASE_URL + '/chapter/' + endpoin)
         .then(item => {
             return item.json();;
         });
 }
 
 function getDetail(endpoin) {
-    return fetch('https://mangamint.kaedenoki.net/api/manga/detail/' + endpoin + "/")
+    return fetch(BASE_URL + '/manga/detail/' + endpoin + "/")
         .then(item => {
             return item.json();;
         });
 }
 
 function getNewUpdate(page) {
-    return fetch('https://mangamint.kaedenoki.net/api/manga/page/' + page)
+    return fetch(BASE_URL + '/manga/page/' + page)
         .then(item => {
             return item.json();;
         });
 }
 
 function getPopuler(keySearch) {
-    return fetch('https://mangamint.kaedenoki.net/api/search/' + keySearch)
+    return fetch(BASE_URL + '/search/' + keySearch)
         .then(item => {
             return item.json();
         });
 }
 
-export { getChapter, getDetail, getNewUpdate, getPopuler }
+function getGenre() {
+    return fetch(BASE_URL + '/genres')
+        .then(item => {
+            return item.json();
+        })
+}
+
+
+export default BASE_URL;
+export { getChapter, getDetail, getNewUpdate, getPopuler, getGenre };

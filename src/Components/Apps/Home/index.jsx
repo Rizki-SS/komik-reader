@@ -4,6 +4,7 @@ import Cover from "./Cover";
 import { Container, makeStyles } from "@material-ui/core";
 import Popular from "./Popular";
 import News from "./News";
+import Genre from "./Genre"
 
 const useStyles = makeStyles((theme) => ({
 }))
@@ -21,9 +22,9 @@ const HomePage = () => {
                 </div>
                 <h1>News Comic</h1>
                 <News></News>
+                <h1>Genre</h1>
+                <Genre />
             </Container>
-
-
         </div>
     )
 }

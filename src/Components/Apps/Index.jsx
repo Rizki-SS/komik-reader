@@ -19,6 +19,7 @@ const App = () => (
         <Route exact path="/" component={HomePage} />
         <Route exact path="/manga/:path" component={Manga} />
         <Route exact path="/chapter/:title" component={ReadingPage} />
+        <Route exact path="/genre/:endpoin" component={ReadingPage} />
     </Router>
 )
 
