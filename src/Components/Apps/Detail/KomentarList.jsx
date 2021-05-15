@@ -4,84 +4,37 @@ import { withRouter } from "react-router-dom";
 import { withFirebase } from "../../../Firebase";
 import { compose } from "recompose";
 
+const ListKomentar = (props) => {
+    const [KomenList, setKomenList] = useState([]);
 
-class ListKomentar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            KomenList: [],
-        };
-    }
-
-    componentDidMount() {
-        this.props.firebase.getKomentar(this.props.endpoint).on('value', snapshot => {
+    useEffect(() => {
+        props.firebase.getKomentar(props.endpoint).on('value', snapshot => {
             const fetchedTasks = [];
-
             snapshot.forEach(childSnapshot => {
                 fetchedTasks.push(childSnapshot.val());
             });
-            this.setState({
-                KomenList: fetchedTasks
-            })
+            setKomenList(fetchedTasks)
         });
-    }
 
-    render() {
-        return (
-            <div>
-                {this.state.KomenList?.map((e, i) => (
-                    <Grid container key={i} xs={12}
-                    // className={classes.GridKomentar}
-                    >
-                        <Grid item xs={12} >
-                            {e.email}
-                        </Grid>
-                        <Grid item xs={12} >
-                            {e.komen}
-                        </Grid>
+    }, [])
+
+    return (
+        <div>
+            {KomenList.map((e, i) => (
+                <Grid container key={i} xs={12}
+                // className={classes.GridKomentar}
+                >
+                    <Grid item xs={12} >
+                        {e.email}
                     </Grid>
-                ))}
-            </div>
-        )
-    }
+                    <Grid item xs={12} >
+                        {e.komen}
+                    </Grid>
+                </Grid>
+            ))}
+        </div>
+    )
 }
-
-
-// const ListKomentar = (props) => {
-//     const [KomenList, setKomenList] = useState([]);
-
-//     useEffect(() => {
-//         props.firebase.getKomentar(props.endpoint).on('value', snapshot => {
-//             const fetchedTasks = [];
-
-//             snapshot.forEach(childSnapshot => {
-//                 fetchedTasks.push(childSnapshot.val());
-//             });
-//             console.log(fetchedTasks);
-//             setKomenList(fetchedTasks)
-//             console.log(KomenList);
-//         });
-
-//     }, [])
-
-//     return (
-//         <div>
-//             {KomenList.list?.map((e, i) => (
-//                 <Grid container key={i} xs={12}
-//                 // className={classes.GridKomentar}
-//                 >
-//                     <h1>dafsaf</h1>
-//                     <Grid item xs={12} >
-//                         {e.email}
-//                     </Grid>
-//                     <Grid item xs={12} >
-//                         {e.komen}
-//                     </Grid>
-//                 </Grid>
-//             ))}
-//         </div>
-//     )
-// }
 
 const KomentarList = compose(
     withRouter,
