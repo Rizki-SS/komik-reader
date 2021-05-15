@@ -48,7 +48,7 @@ const News = () => {
         <Grid container spacing={3} justify="center">
 
             {Komik.manga_list?.map((e, i) => (
-                <Grid item>
+                <Grid item key={i}>
                     <CardComic
                         title={e.title}
                         chapter={e.chapter}

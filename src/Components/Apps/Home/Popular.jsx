@@ -38,7 +38,7 @@ const Popular = (props) => {
             {(Komik.status) ? (
                 <GridList className={classes.gridList} cols={(props.width === 'xs') ? 1 : 2} cellHeight={(props.width === 'xs') ? 600 : 310}>
                     {Komik.manga_list?.map((e, i) => (
-                        <GridListTile>
+                        <GridListTile key={i}>
                             <CardComic
                                 title={e.title}
                                 chapter={e.chapter}
