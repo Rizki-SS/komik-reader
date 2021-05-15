@@ -9,6 +9,7 @@ import Register from './Register';
 import HomePage from "./Home";
 import ReadingPage from "./Reading";
 import Manga from "./Detail";
+import GenrePage from "./Genre";
 
 const App = () => (
     <Router>
@@ -19,7 +20,7 @@ const App = () => (
         <Route exact path="/" component={HomePage} />
         <Route exact path="/manga/:path" component={Manga} />
         <Route exact path="/chapter/:title" component={ReadingPage} />
-        <Route exact path="/genre/:endpoin" component={ReadingPage} />
+        <Route exact path="/genre/:genre" component={GenrePage} />
     </Router>
 )
 

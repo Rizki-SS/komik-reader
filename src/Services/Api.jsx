@@ -35,6 +35,13 @@ function getGenre() {
         })
 }
 
+function getByGenre(endpoin, page) {
+    return fetch(`${BASE_URL}/genres/${endpoin}/${page}`)
+        .then(item => {
+            return item.json();
+        })
+}
+
 
 export default BASE_URL;
-export { getChapter, getDetail, getNewUpdate, getPopuler, getGenre };
+export { getChapter, getDetail, getNewUpdate, getPopuler, getGenre, getByGenre };

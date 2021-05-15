@@ -30,7 +30,6 @@ const News = () => {
     }, [Komik.status]);
 
     const LoadMore = (event) => {
-        // console.log("CLicked");
         setLoading(true);
         getNewUpdate(Komik.page + 1)
             .then((result) => {
@@ -40,7 +39,6 @@ const News = () => {
                     manga_list: [...Komik.manga_list, ...result.manga_list]
                 })
                 setLoading(false);
-                // console.log(Komik);
             })
     }
 
