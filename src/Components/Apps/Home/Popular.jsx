@@ -3,7 +3,7 @@ import Cover from "./Cover";
 
 import { Container, Grid, makeStyles, GridList, GridListTileBar, GridListTile, withWidth } from "@material-ui/core";
 import CardComic, { CardComicSkelaton } from "../../Widget/CardComic";
-import { getPopuler } from "../../../Services/Populer";
+import { getPopuler } from "../../../Services/Api";
 
 const useStyles = makeStyles((theme) => ({
     root: {

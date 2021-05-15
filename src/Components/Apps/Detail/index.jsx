@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getDetail } from "../../../Services/Detail";
+import { getDetail } from "../../../Services/Api";
 import { Parallax } from "react-parallax";
 import { Container, Card, CardMedia, CardContent, Typography, makeStyles, Grid, Button, Paper } from "@material-ui/core";
 import Skeleton from '@material-ui/lab/Skeleton';

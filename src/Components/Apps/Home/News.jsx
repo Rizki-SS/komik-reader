@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getNewUpdate } from "../../../Services/NewUpdate";
+import { getNewUpdate } from "../../../Services/Api";
 import { Grid, Button, makeStyles } from "@material-ui/core";
 import CardComic from "../../Widget/CardComic";
 import { DisappearedLoading, BoxLoading } from 'react-loadingg';

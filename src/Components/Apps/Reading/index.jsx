@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Typography, makeStyles } from "@material-ui/core";
-import { getChapter } from "../../../Services/Chapter";
+import { getChapter } from "../../../Services/Api";
 import ImageChapter from "./ImageChapter";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { TextLazy } from "../../Widget";
