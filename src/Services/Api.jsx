@@ -42,6 +42,13 @@ function getByGenre(endpoin, page) {
         })
 }
 
+function getSearchByName(query) {
+    return fetch(`${BASE_URL}/search/${query}`)
+        .then(item => {
+            return item.json();
+        })
+}
+
 
 export default BASE_URL;
-export { getChapter, getDetail, getNewUpdate, getPopuler, getGenre, getByGenre };
+export { getChapter, getDetail, getNewUpdate, getPopuler, getGenre, getByGenre, getSearchByName };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles, AppBar, Toolbar, Typography, Button, Container, InputBase, Icon, fade } from "@material-ui/core";
 
 import menu from "../../Constants/Menu";
@@ -6,6 +6,7 @@ import Drawer from "./SwipeBar";
 import Logout from "../Apps/Logout";
 import { AuthUserContext } from "../../Session";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import SearchBar from "../Apps/Search/SearchBar";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,50 +22,11 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
-    inputRoot: {
-        color: 'inherit',
-    },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
-        },
-    },
-    searchIcon: {
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    inputRoot: {
-        color: 'inherit',
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-        },
-    },
 }));
 
 export default function Navbar() {
     const classes = useStyles();
+    const [keyword, setKeyword] = useState(null);
 
     return (
         <div>
@@ -75,19 +37,7 @@ export default function Navbar() {
                             Baca Komik
                         </Typography>
 
-                        <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <Icon>search</Icon>
-                            </div>
-                            <InputBase
-                                placeholder="Search…"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </div>
+                        <SearchBar />
 
                         <div className={classes.menu}>
                             {menu.map((e, i) => (
@@ -105,6 +55,6 @@ export default function Navbar() {
                 </Container>
             </AppBar>
 
-        </div>
+        </div >
     );
 }
