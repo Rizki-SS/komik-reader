@@ -10,7 +10,7 @@ import ChapterList from "./ChapterList";
 import { TextLazy } from "../../Widget";
 import Komentar from "./Komentar";
 import KomentarList from "./KomentarList";
-
+import Savebtn from "./savebtn";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: 10,
         marginBottom: 30
+    },
+    Savebtn: {
+        marginTop: 25
     }
 }));
 
@@ -89,6 +92,8 @@ const Manga = (props) => {
                                         {manga.status}
                                     </Typography>
                                 </TextLazy>
+                                <div className={classes.Savebtn}>
+                                    <Savebtn manga={manga} /></div>
                             </CardContent>
                         </Card>
                     </Grid>

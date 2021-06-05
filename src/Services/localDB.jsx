@@ -20,11 +20,11 @@ const remove = async ({ endoin }) => {
 }
 
 const getAll = () => {
-    return localDB.table(DB_NAME).toArray()
+    // return localDB.table(DB_NAME).toArray()
 }
 
 const getByEndpoin = ({ key }) => {
-    return localDB.table(BD_NAME).get({ endpoin: key })
+    // return localDB.table(BD_NAME).get({ endpoin: key })
 }
 
 export default localDB
