@@ -57,7 +57,7 @@ const CardComic = (props) => {
                         Last Update {props.updated_on}
                     </Typography>
                     <Typography component="h5" variant="h5" >
-                        <b>{props.title}</b>
+                        <b>{(props.title.length > 50) ? props.title.slice(0, 50) + "..." : props.title}</b>
                     </Typography>
                     <Typography variant="subtitle1" color="textSecondary">
                         {props.chapter}
