@@ -11,7 +11,7 @@ import ReadingPage from "./Reading";
 import Manga from "./Detail";
 import GenrePage from "./Genre";
 import SearchPage from "./Search";
-
+import NotFound from "./404";
 const App = () => (
     <Router>
         <Navbar />
@@ -25,13 +25,11 @@ const App = () => (
             <Route exact path="/genre/:genre" component={GenrePage} />
             <Route exact path="/search/:key" component={SearchPage} />
 
-            <Route component={notFound} />
+            <Route component={NotFound} />
         </Switch>
     </Router>
 )
 
-const notFound = () => (
-    <h1>Page not Found</h1>
-)
+
 
 export default withAuthentication(App);

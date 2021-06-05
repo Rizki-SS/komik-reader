@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { TextField, makeStyles, Grid, Avatar } from "@material-ui/core";
+import { TextField, makeStyles, } from "@material-ui/core";
 import { compose } from "recompose";
 import { withRouter, Link } from "react-router-dom/cjs/react-router-dom.min";
 import { withFirebase } from "../../../Firebase";
-import { withAuthorization, AuthUserContext } from "../../../Session";
+import { AuthUserContext } from "../../../Session";
 
 const useStyles = makeStyles((theme) => ({
     root: {
