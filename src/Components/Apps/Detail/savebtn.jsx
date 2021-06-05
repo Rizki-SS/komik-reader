@@ -11,10 +11,10 @@ const Savebtn = (props) => {
             size="large"
             startIcon={<Icon>bookmark_border</Icon>}
             fullWidth
-            onclick={
+            onClick={
                 async () => {
                     await add({
-                        endpoin: props.manga.enpoin,
+                        endpoin: props.manga.manga_endpoint,
                         value: props.manga
                     })
                 }
