@@ -12,6 +12,8 @@ import Manga from "./Detail";
 import GenrePage from "./Genre";
 import SearchPage from "./Search";
 import NotFound from "./404";
+import Save from "./Save";
+
 const App = () => (
     <Router>
         <Navbar />
@@ -24,6 +26,7 @@ const App = () => (
             <Route exact path="/chapter/:title" component={ReadingPage} />
             <Route exact path="/genre/:genre" component={GenrePage} />
             <Route exact path="/search/:key" component={SearchPage} />
+            <Route exact path="/bookmark" component={Save} />
 
             <Route component={NotFound} />
         </Switch>

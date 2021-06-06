@@ -3,8 +3,8 @@ const menu = [{
         url: '/'
     },
     {
-        name: 'popular',
-        url: '/popular',
+        name: 'Bookmark',
+        url: '/bookmark',
     }
 ]
 
