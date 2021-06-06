@@ -91,9 +91,10 @@ const Manga = (props) => {
                                     <Typography gutterBottom variant="body2" component="p">
                                         {manga.status}
                                     </Typography>
+                                    <div className={classes.Savebtn}>
+                                        <Savebtn manga={manga} endpoint={props.match.params.path} />
+                                    </div>
                                 </TextLazy>
-                                <div className={classes.Savebtn}>
-                                    <Savebtn manga={manga} /></div>
                             </CardContent>
                         </Card>
                     </Grid>
