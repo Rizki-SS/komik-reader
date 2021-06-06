@@ -14,7 +14,8 @@ const withAuthotization = condition => Component => {
                     if (!condition(authUser)) {
                         this.props.history.push("/");
                     }
-                }
+                },
+                () => this.props.history.push("/login")
             );
         }
 
