@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, makeStyles, } from "@material-ui/core";
+import { TextField, makeStyles, Button, Icon, } from "@material-ui/core";
 import { compose } from "recompose";
 import { withRouter, Link } from "react-router-dom/cjs/react-router-dom.min";
 import { withFirebase } from "../../../Firebase";
@@ -58,7 +58,17 @@ const FormKomentar = (props) => {
                                 onChange={onChage} />
                         </form>
                     ) : (
-                            <Link to="/login">Login</Link>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="large"
+                                startIcon={<Icon>login</Icon>}
+                                component={Link}
+                                to={"/login"}
+                            >
+                                Login
+                            </Button>
+
                         )
                 }
             </AuthUserContext.Consumer>
