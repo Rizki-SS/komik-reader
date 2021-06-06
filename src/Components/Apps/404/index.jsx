@@ -30,7 +30,7 @@ const Notfound = () => {
                 className={classes.paimon}
                 src={img}>
             </img>
-            <h1>Server Not Found :)</h1>
+            <h1>404 not found :(</h1>
         </div>
 
     )
